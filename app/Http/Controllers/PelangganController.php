@@ -37,6 +37,7 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('crate',Pelanggan::class);
         $pel = new Pelanggan;
 
         $pel->nama = $request->nama;

@@ -22,7 +22,9 @@
     </div>
 <div class="container  bg-white mt-3 p-4">
     {{-- <h1>Data Pelanggan</h1> --}}
+    @can('create', App\Pelanggan::class)
     <a href="/pelanggan/form" class="btn btn-primary">Tambah Data</a>
+    @endcan
     <br>
     <br>
     <div class="card">
@@ -46,7 +48,7 @@
                             <td>{{$item->nama}}</td>
                             <td>{{$item->hp}}</td>
                             <td>
-                                <a href="/pelanggan/edit/{{$item->id}}" class="btn btn-success btn-sm">edit</a>
+                                <a href="/pelanggan/edit/{{$item->id}}"  class="btn btn-success btn-sm">edit</a>
                                 
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">
                                     hapus
@@ -68,7 +70,7 @@
                                         <form method="POST" action="/pelanggan/{{$item->id}}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-primary">Hapus</button>
+                                            <button type="submit"  class="btn btn-primary">Hapus</button>
                                         </form>
                                         </div>
                                     </div>
